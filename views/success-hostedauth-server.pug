@@ -1,0 +1,54 @@
+html
+    style
+        include ../public/css/index.css
+    body
+        a(href="/") Home
+        hr
+        br
+        h1 Success! - Hosted Authentication (Server)
+        br
+        h2 /oauth/authorize response
+        table
+            tr
+                th Code
+                th State 
+            tr
+                td 
+                    code #{code}
+                td 
+                    code #{state}
+        br
+        h2 /oauth/token response
+        table
+            tr
+                th access_token 
+                th account_id 
+                th email_address 
+                th provider 
+                th token_type 
+            tr 
+                td 
+                    code #{access_token}
+                td 
+                    code #{account_id}
+                td 
+                    code #{email_address}
+                td 
+                    code #{provider}
+                td 
+                    code #{token_type}
+        //- h2 /oauth/token response
+        //- h4 access_token: 
+        //- code #{access_token}
+        //- br
+        //- h4 account_id:
+        //- code #{account_id}
+        //- br
+        //- h4 email_address:
+        //- code #{email_address}
+        //- br
+        //- h4 provder:
+        //- code #{provider}
+        //- br
+        //- h4 token_type:
+        //- code #{token_type}
