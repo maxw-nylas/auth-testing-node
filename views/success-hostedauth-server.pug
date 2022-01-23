@@ -5,7 +5,7 @@ html
         a(href="/") Home
         hr
         br
-        h1 Success! - Hosted Authentication (Server)
+        h1 Success! - Hosted Authentication (#{requestType})
         br
         h2 /oauth/authorize response
         table
@@ -37,18 +37,3 @@ html
                     code #{provider}
                 td 
                     code #{token_type}
-        //- h2 /oauth/token response
-        //- h4 access_token: 
-        //- code #{access_token}
-        //- br
-        //- h4 account_id:
-        //- code #{account_id}
-        //- br
-        //- h4 email_address:
-        //- code #{email_address}
-        //- br
-        //- h4 provder:
-        //- code #{provider}
-        //- br
-        //- h4 token_type:
-        //- code #{token_type}

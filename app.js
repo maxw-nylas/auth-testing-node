@@ -40,7 +40,7 @@ app.get('/hostedauth', (request, response) => {
         log(`\nRedirecting to responseUrL: ${resp.request.res.responseUrl}\n`);
     })
     .catch(error => {
-        log(error);
+        log(error.toJSON());
     })
 });
 
@@ -51,7 +51,8 @@ app.get('/success-hostedauth-server', (request, response) => {
         log("Access token retrieved:");
         log(response.req.query);
         response.render('success-hostedauth-server', {
-            ...response.req.query
+            ...response.req.query,
+            requestType: 'Client-side'
         });
     }
     // SERVER-SIDE request
@@ -75,7 +76,8 @@ app.get('/success-hostedauth-server', (request, response) => {
             log(resp.data);
             response.render('success-hostedauth-server', {
                 ...response.req.query,
-                ...resp.data
+                ...resp.data,
+                requestType: 'Server-side'
             });
         })
         .catch(error => {
