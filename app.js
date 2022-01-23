@@ -37,7 +37,7 @@ app.get('/hostedauth', (request, response) => {
     })
     .then(resp => {
         response.redirect(resp.request.res.responseUrl);
-        log(`\nRedirecting to responseUrL: ${resp.request.res.responseUrl}`);
+        log(`\nRedirecting to responseUrL: ${resp.request.res.responseUrl}\n`);
     })
     .catch(error => {
         log(error);
@@ -56,7 +56,7 @@ app.get('/success-hostedauth-server', (request, response) => {
     }
     // SERVER-SIDE request
     else {
-        log("\nReturning server code and state (if included)...\n")
+        log("Returning server code and state (if included)...\n")
         log(response.req.query);
         log("\nSending server code to /oauth/token\n");
         axios.get('https://api.nylas.com/oauth/token', {
