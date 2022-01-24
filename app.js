@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const axios = require('axios');
 const path = require('path');
+const colors = require('colors');
 const log = console.log;
 
 require('dotenv').config()
@@ -10,7 +11,7 @@ app.set('view engine', 'pug')
 app.set("views", path.join(__dirname, "views"));
 
 app.listen(3000, () => {
-    log("\nApplication started and Listening on port 3000\n");
+    log("\nApplication started and Listening at http://localhost:3000/\n".inverse.green);
 });
 
 app.get('/', (request, response) => {
@@ -20,7 +21,7 @@ app.get('/', (request, response) => {
 app.get('/hostedauth', (request, response) => {
     const serverOrClientEnum = request._parsedUrl.query;
 
-    log("\nSending a GET request to https://api.nylas.com/oauth/authorize\n");
+    log("\nSending a GET request to https://api.nylas.com/oauth/authorize\n".green);
 
     axios.get('https://api.nylas.com/oauth/authorize', {
         header: {
@@ -37,7 +38,7 @@ app.get('/hostedauth', (request, response) => {
     })
     .then(resp => {
         response.redirect(resp.request.res.responseUrl);
-        log(`\nRedirecting to responseUrL: ${resp.request.res.responseUrl}\n`);
+        log(`\nRedirecting to responseUrL: ${resp.request.res.responseUrl}\n`.green);
     })
     .catch(error => {
         log(error.toJSON());
