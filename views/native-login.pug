@@ -1,0 +1,33 @@
+html
+    style
+        include ../public/css/index.css
+    body
+        a(href="/") Home
+        h3 Native Authentication
+        label(for="name") Name
+        input(name="name" type="text" id="name")
+        label(for="name") Email Address
+        input(name="name" type="text" id="email")
+        .provider-container
+            .provider
+                label(for="gmail" required) gmail
+                input(type="radio" value="gmail" name="provider")
+            .provider
+                label(for="office365") office365
+                input(type="radio" value="office365" name="provider")
+            .provider
+                label(for="icloud") icloud
+                input(type="radio" value="icloud" name="provider")
+            .provider    
+                label(for="imap" name="provider") imap
+                input(type="radio" value="imap" name="provider")
+        button(style="margin:7px" onclick="submitNativeAuthData()") Login
+    script.
+        function submitNativeAuthData() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var provider = document.querySelector('input[name="provider"]:checked').value;
+
+            window.location.href = "/nativeauth?name=" + name + "&email=" + email + "&provider=" + provider;
+        }
+        

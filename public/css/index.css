@@ -18,3 +18,13 @@ th, td {
     padding: 7px;
     text-align: center;
 }
+
+.provider-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.provider {
+    display: flex;
+    padding: 7px;
+}
