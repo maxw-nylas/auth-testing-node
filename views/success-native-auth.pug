@@ -1,0 +1,43 @@
+html
+    style
+        include ../public/css/index.css
+    body
+        a(href="/") Home
+        h1 Native Auth Was Successful
+        h5 access_token
+        p#access_token
+        br
+        h5 state 
+        p#state 
+        br
+        h5 token_type
+        p#token_type
+        br
+        h5 expires_in
+        p#expires_in
+        br
+        h5 scope
+        p#scope
+    
+    script.
+        var params = new URLSearchParams(window.location.hash.substr(1));
+        var access_token = params.get("access_token");
+        var state = params.get("state");
+        var token_type = params.get("token_type");
+        var expires_in = params.get("expires_in");
+        var scope = params.get("scope");
+        
+        document.getElementById('access_token').innerHTML = access_token;
+        document.getElementById('state').innerHTML = state;
+        document.getElementById('token_type').innerHTML = token_type;
+        document.getElementById('expires_in').innerHTML = expires_in;
+        document.getElementById('scope').innerHTML = scope;
+
+        //- http://localhost:3000/
+        // success-native-auth#state=test
+        // &access_token=ya29.A0ARrdaM_eSLCWJZwVAB2KFKgLun39vtF-bPtEYF6QUbhv7vVArLeAi4w1xma9YOSNGR-7rh_ruANSOEeeg-MGdHaABp1tZiPTt1P1gq97ZSUOgj3jqN7SwXJYSmJYRUAXQNiXHqIeDttJvDiphT6iE_QJDGY5uSFsMbVghYOY4QI
+        // &token_type=Bearer&expires_in=3599&
+        // scope=email%20profile%20https://www.googleapis.com/auth/gmail.readonly%20openid%20https://www.googleapis.com/auth/contacts%20https://www.googleapis.com/auth/userinfo.email%20https://www.googleapis.com/auth/userinfo.profile%20https://www.googleapis.com/auth/calendar
+        //&authuser=0&
+        //hd=nylas.com
+        //&prompt=none

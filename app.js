@@ -21,4 +21,5 @@ app.get('/hostedauth', hosted.hostedAuth);
 app.get('/success-hostedauth-server', hosted.hostedAuthSuccess);
 app.get('/nativelanding', native.nativeAuthLadingPage);
 app.get('/nativeauth', native.nativeAuth);
+app.get('/success-native-auth', native.nativeAuthSuccess);
 

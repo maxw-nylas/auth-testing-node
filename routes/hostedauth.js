@@ -16,8 +16,7 @@ const hostedAuth = (request, response) => {
             redirect_uri: "http://localhost:3000/success-hostedauth-server",
             scopes: "email.read_only,calendar.read_only,contacts.read_only",
             response_type: serverOrClientEnum,
-            login_hint: "my_email@example.com",
-            state: "MyCustomStateString",
+            state: "MyCustomStateString"
         }
     })
     .then(resp => {
@@ -35,7 +34,7 @@ const hostedAuthSuccess = (request, response) => {
     if (Object.keys(request.query).indexOf("access_token") >= 0) {
         log("Access token retrieved:");
         log(response.req.query);
-        response.render('success', {
+        response.render('success-hosted-auth', {
             ...response.req.query,
             requestType: 'Client-side'
         });
